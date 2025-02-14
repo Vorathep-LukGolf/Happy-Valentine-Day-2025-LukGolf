@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>❤️ Happy Valentine Day 2025 ❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="heart"></div>
+        <div class="message">❤️ Happy Valentine Day 2025 ❤️</div>
+
+        <!-- แสดงรูปภาพแบบ Responsive -->
+        <div class="gallery">
+            <img src="475658_0.jpg" alt="Image 1">
+            <img src="475659_0.jpg" alt="Image 2">
+            <img src="475662.jpg" alt="Image 3">
+            <img src="475664.jpg" alt="Image 4">
+        </div>
+    </div>
+
+    <!-- YouTube Player มุมล่างซ้าย -->
+    <div class="music-player">
+        <button id="playButton">🎵 แตะเพื่อเล่น</button>
+        <iframe id="youtubePlayer" width="200" height="110"
+            src="https://www.youtube.com/embed/Lep1JdIbpig?enablejsapi=1&autoplay=0&loop=1&playlist=Lep1JdIbpig&mute=0"
+            frameborder="0" allow="autoplay; encrypted-media" style="display: none;"></iframe>
+    </div>
+
+    <!-- แสดง Date-Time มุมขวาล่าง -->
+    <div class="datetime-container" id="datetime"></div>
+
+    <script>
+        function updateDateTime() {
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+            document.getElementById("datetime").innerHTML = now.toLocaleDateString('th-TH', options);
+        }
+        setInterval(updateDateTime, 1000);
+        updateDateTime();
+
+        // ให้ผู้ใช้แตะปุ่มเพื่อเล่น YouTube
+        document.getElementById("playButton").addEventListener("click", function() {
+            let player = document.getElementById("youtubePlayer");
+            player.style.display = "block"; // แสดง YouTube Player
+            player.src += "&autoplay=1";
+            this.style.display = "none"; // ซ่อนปุ่มหลังจากกดเล่น
+        });
+    </script>
+
+</body>
+</html>
